@@ -1,0 +1,57 @@
+package hr.fer.zavrsniRad.BurgerMaster.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import hr.fer.zavrsniRad.BurgerMaster.dao.UserRepository;
+import hr.fer.zavrsniRad.BurgerMaster.domain.User;
+
+/**
+ * Class which presents concrete implementation of <code>UserService</code>.
+ * 
+ * @author Jelena Šarić
+ */
+public class UserServiceImpl implements UserService {
+	
+	/** User repository. */
+	@Autowired
+	private UserRepository repository;
+	
+	/** Password encoder. */
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+	@Override
+	public Optional<User> findById(int id) {
+		return repository.findById(id);
+	}
+
+	@Override
+	public Optional<User> findByUsername(String username) {
+		return repository.findByUsername(username);
+	}
+
+	@Override
+	public User createUser(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		return repository.save(user);
+	}
+
+	@Override
+	public User saveUser(User user) {
+		return repository.save(user);
+	}
+
+	@Override
+	public boolean checkIfUsernameExists(String username) {
+		return repository.findByUsername(username).isPresent();
+	}
+
+	@Override
+	public boolean checkIfEmailExists(String email) {
+		return repository.findByEmail(email).isPresent();
+	}
+
+}
