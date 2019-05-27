@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,10 +37,9 @@ public class UserController {
 	 * @return <code>User</code> object if user with provided id exists, otherwise
 	 * 		   <code>null</code>
 	 */
-	@GetMapping
-	public User getById(@RequestParam("id") Optional<Integer> id) {
-		if (!id.isPresent()) return null;
-		Optional<User> user = service.findById(id.get());
+	@GetMapping("/id/{id}")
+	public User getById(@PathVariable int id) {
+		Optional<User> user = service.findById(id);
 		return user.isPresent() ? user.get() : null;
 	}
 	
@@ -50,10 +50,9 @@ public class UserController {
 	 * @return <code>User</code> object if user with provided username exists, otherwise
 	 * 		   <code>null</code>
 	 */
-	@GetMapping
-	public User getByUsername(@RequestParam("username") Optional<String> username) {
-		if (!username.isPresent()) return null;
-		Optional<User> user = service.findByUsername(username.get());
+	@GetMapping("/username/{username}")
+	public User getByUsername(@PathVariable String username) {
+		Optional<User> user = service.findByUsername(username);
 		return user.isPresent() ? user.get() : null;
 	}
 	
@@ -66,10 +65,9 @@ public class UserController {
 	 * @throws UsernameAlreadyExistsException if user with provided username already
 	 * 										  exists
 	 */
-	@GetMapping("/check")
-	public void checkIfUsernameExists(@RequestParam("username") Optional<String> username) {
-		if (!username.isPresent()) return;
-		if (service.checkIfUsernameExists(username.get())) {
+	@GetMapping("/check/username/{username}")
+	public void checkIfUsernameExists(@PathVariable String username) {
+		if (service.checkIfUsernameExists(username)) {
 			throw new UsernameAlreadyExistsException(
 					"User with provided username already exists!"
 			);
@@ -85,10 +83,9 @@ public class UserController {
 	 * @throws EmailAlreadyExistsException if user with provided email already
 	 * 									   exists
 	 */
-	@GetMapping("/check")
-	public void checkIfEmailExists(@RequestParam("email") Optional<String> email) {
-		if (!email.isPresent()) return;
-		if (service.checkIfEmailExists(email.get())) {
+	@GetMapping("/check/email/{email}")
+	public void checkIfEmailExists(@PathVariable String email) {
+		if (service.checkIfEmailExists(email)) {
 			throw new EmailAlreadyExistsException(
 					"User with provided email already exists!"
 			);

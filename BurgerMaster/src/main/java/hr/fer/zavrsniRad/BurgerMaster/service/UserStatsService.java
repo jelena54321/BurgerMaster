@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import hr.fer.zavrsniRad.BurgerMaster.domain.UserStats;
 
 /**
@@ -11,6 +13,7 @@ import hr.fer.zavrsniRad.BurgerMaster.domain.UserStats;
  * 
  * @author Jelena Šarić
  */
+@Service
 public interface UserStatsService {
 	
 	/**

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import hr.fer.zavrsniRad.BurgerMaster.dao.UserRepository;
 import hr.fer.zavrsniRad.BurgerMaster.domain.User;
@@ -13,6 +14,7 @@ import hr.fer.zavrsniRad.BurgerMaster.domain.User;
  * 
  * @author Jelena Šarić
  */
+@Service
 public class UserServiceImpl implements UserService {
 	
 	/** User repository. */

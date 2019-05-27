@@ -1,5 +1,12 @@
 package hr.fer.zavrsniRad.BurgerMaster.rest;
 
+/**
+ * Class which presents exception which is thrown when user with
+ * provided email already exists in the database.
+ * 
+ * @author Jelena Šarić
+ *
+ */
 public class EmailAlreadyExistsException extends RuntimeException {
 
 	/** Serial version number. */

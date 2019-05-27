@@ -1,0 +1,72 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+	background-image: linear-gradient(#FAB02F, #FAA12F, #FA8B2F);
+	height: 100vh;
+	text-align: center;
+}
+
+.registerTitle {
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	margin: 0;
+	margin-top: 2vh;
+}
+
+.registerContainer {
+	margin: auto;
+	margin-top: 4vh;
+	width: 40vw;
+	
+	background-color: #FF6F27;
+	padding: 2vw;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.4), 0 15px 40px 0 rgba(0, 0, 0, 0.19); 
+	
+	display: grid;
+	grid-row-gap: 2vh;
+	grid-template-rows: 5vh 3vh 5vh 3vh 5vh 3vh 5vh;
+}
+
+.firstTextField,
+.secondTextField,
+.thirdTextField,
+.registerButton {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 17px;
+	padding: 0.4vw;
+	width: 30vw;
+	outline: none;
+	border: none;
+	border-radius: 7px;
+}
+
+.firstTextField { grid-row: 1; }
+.usernameErrorLabel { grid-row: 2; }
+.secondTextField { grid-row: 3; }
+.emailErrorLabel { grid-row: 4; }
+.thirdTextField { grid-row: 5; }
+.passwordErrorLabel { grid-row: 6;}
+
+.registerButton {
+	background-color: #FF3A00;
+	color: white;
+	letter-spacing: 0.5vw;
+	
+	grid-row: 7;
+}
+
+.registerButton:hover {
+	background-color: #B92A00;
+}
+
+.usernameErrorLabel,
+.emailErrorLabel,
+.passwordErrorLabel {
+	color: white;
+	font-size: 13px;
+}

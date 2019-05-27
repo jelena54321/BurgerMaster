@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BurgerMaster</title>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    <script>
+    	function logIn() {
+    		let username = document.getElementById("username").value;
+    		let password = document.getElementById("password").value;
+    		
+    		$.post(
+    			{
+    				url: "/login",
+    				data: "username=" + username + "&password=" + password,
+    				headers: {
+    					"Content-Type": "application/x-www-form-urlencoded"
+    				},
+    				success: function(data) {
+    					document.getElementById("errorLabel").hidden = true;
+    				},
+    				error: function() {
+    					document.getElementById("errorLabel").hidden = false;
+    				}
+    			}
+    		);
+    	}
+    </script>
+    
+    
+</head>
+<body>
+	<h2 class="title">BurgerMaster</h2>
+	<img 
+		class="logo" 
+		src="media/OGLogo.png" 
+		alt="BurgerMaster: logo" 
+		width=670px>
+	<div class="loginContainer">
+		<input 
+			class="firstInputField" 
+			id="username" 
+			type="text" 
+			placeholder="Username">
+		<input 
+			class="secondInputField" 
+			id="password" 
+			type="password" 
+			placeholder="Password">
+		<label class="errorLabel" id="errorLabel" hidden="true">
+			Provided user name and/or password is incorrect!
+		</label>
+		<label class="signUpLabel">
+			Don't have an account? <a href="registration.html">Sign Up</a>
+		</label>
+		<button class="loginButton" onClick="logIn()">Log In</button>
+	</div>
+</body>
+
+</html>

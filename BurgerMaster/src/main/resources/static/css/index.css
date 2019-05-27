@@ -1,0 +1,84 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+	background-image: linear-gradient(#FAB02F, #FAA12F, #FA8B2F);
+	height: 100vh;
+}
+
+.title {
+	color: white;
+	font-size: 60px;
+	text-align: center;
+	margin: 0;
+}
+
+.logo {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.loginContainer {
+	position: fixed;
+	bottom: 0;
+	left: 20vw;
+	right: 20vw;
+	height: 27vh;
+	
+	background-color: #FF6F27;
+	padding: 1vw 1vw 2vw 1vw;
+	border-radius: 10px 10px 0 0;
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.4), 0 15px 40px 0 rgba(0, 0, 0, 0.19); 
+	
+	display: grid;
+	grid-row-gap: 1.5vh;
+	grid-template-rows: 5vh 5vh 3vh 5vh 3vh;
+}
+
+.firstInputField, 
+.secondInputField,
+.loginButton {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 17px;
+	padding: 0.4vw;
+	width: 30vw;
+	outline: none;
+	border: none;
+	border-radius: 7px;
+}
+
+.firstInputField {
+	grid-row: 1;
+}
+
+.secondInputField {
+	grid-row: 2;
+}
+
+.errorLabel, .signUpLabel {
+	color: white;
+	font-size: 12px;
+	text-align: center;
+	
+	grid-row: 3;
+}
+
+.loginButton {
+	background-color: #FF3A00;
+	color: white;
+	letter-spacing: 0.5vw;
+	
+	grid-row: 4;
+}
+
+.loginButton:hover {
+	background-color: #B92A00;
+}
+
+.signUpLabel {
+	font-size: 15px;
+	grid-row: 5;
+}
