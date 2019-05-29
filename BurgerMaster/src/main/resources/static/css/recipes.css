@@ -1,0 +1,14 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+	background-image: linear-gradient(#FFBA62, #FAA12F, #FF7B06);
+	height: 100vh;
+	text-align: center;
+	color: white;
+}
+
+.headers {
+	height: 10vh;
+	
+	display: grid;
+	grid-template-columns: 10vw 30vw 20vw auto;
+}

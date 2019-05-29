@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BurgerMaster</title>
+    <link rel="stylesheet" href="css/registration.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/registration.js"></script>
+</head>
+<body>
+	<img 
+		class="logo" 
+		src="/media/OGLogo.png" 
+		alt="Logo"
+		width=200px>
+	<h2 class="registerTitle">Sign Up</h2>
+	<div class="registerContainer">
+		<input 
+			class="firstTextField" 
+			id="username" 
+			type="text" 
+			placeholder="Username">
+		<label 
+			class="usernameErrorLabel" 
+			id="usernameErrorLabel"></label>
+		<input 
+			class="secondTextField" 
+			id="email" 
+			type="text" 
+			placeholder="E-mail">
+		<label 
+			class="emailErrorLabel" 
+			id="emailErrorLabel"></label>
+		<input 
+			class="thirdTextField" 
+			id="password" 
+			type="password" 
+			placeholder="Password">
+		<label 
+			class="passwordErrorLabel" 
+			id="passwordErrorLabel"></label>
+		<button class="registerButton" onClick="register()"><span>Sign Up</span></button>
+	</div>
+	<p>To return to the home page click <a href="/">here</a></p>
+</body>

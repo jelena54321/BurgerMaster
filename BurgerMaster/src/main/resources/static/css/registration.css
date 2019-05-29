@@ -1,12 +1,12 @@
 body {
 	font-family: 'Quicksand', sans-serif;
-	background-image: linear-gradient(#FAB02F, #FAA12F, #FA8B2F);
+	background-image: linear-gradient(#FFBA62, #FAA12F, #FF7B06);
 	height: 100vh;
 	text-align: center;
+	color: white;
 }
 
 .registerTitle {
-	color: white;
 	font-size: 40px;
 	text-align: center;
 	margin: 0;

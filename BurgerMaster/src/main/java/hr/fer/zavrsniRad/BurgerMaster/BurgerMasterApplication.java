@@ -14,8 +14,7 @@ public class BurgerMasterApplication {
 	}
 	
 	@Bean
-	public PasswordEncoder pswdEncoder() {
+	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
 }

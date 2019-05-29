@@ -104,4 +104,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public void fillWithUserModelData(UserModel userModel) {
+		this.username = userModel.getUsername();
+		this.email = userModel.getEmail();
+		this.password = userModel.getPassword();
+	}
 }

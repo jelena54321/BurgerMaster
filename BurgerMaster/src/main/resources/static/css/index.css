@@ -1,11 +1,11 @@
 body {
 	font-family: 'Quicksand', sans-serif;
-	background-image: linear-gradient(#FAB02F, #FAA12F, #FA8B2F);
+	background-image: linear-gradient(#FFBA62, #FAA12F, #FF7B06);
 	height: 100vh;
+	color: white;
 }
 
 .title {
-	color: white;
 	font-size: 60px;
 	text-align: center;
 	margin: 0;
@@ -17,28 +17,44 @@ body {
   	margin-right: auto;
 }
 
-.loginContainer {
+.preLoginContainer,
+.postLoginContainer {
 	position: fixed;
 	bottom: 0;
 	left: 20vw;
 	right: 20vw;
-	height: 27vh;
 	
 	background-color: #FF6F27;
-	padding: 1vw 1vw 2vw 1vw;
 	border-radius: 10px 10px 0 0;
 	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.4), 0 15px 40px 0 rgba(0, 0, 0, 0.19); 
 	
 	display: grid;
-	grid-row-gap: 1.5vh;
+}
+
+.postLoginContainer {
+	grid-template-rows: repeat(3, 5vh);
+	padding: 2vw;
+	
+	grid-row-gap: 2vh;
+}
+
+.preLoginContainer {
 	grid-template-rows: 5vh 5vh 3vh 5vh 3vh;
+	padding: 1vw 1vw 2vw 1vw;
+	height: 27vh;
+	
+	grid-row-gap: 1.5vh;
 }
 
 .firstInputField, 
 .secondInputField,
-.loginButton {
+.button,
+.secondFunc,
+.thirdFunc,
+.fourthFunc,
+.fifthFunc {
 	margin-left: auto;
 	margin-right: auto;
 	font-family: 'Quicksand', sans-serif;
@@ -50,13 +66,8 @@ body {
 	border-radius: 7px;
 }
 
-.firstInputField {
-	grid-row: 1;
-}
-
-.secondInputField {
-	grid-row: 2;
-}
+.firstInputField { grid-row: 1; }
+.secondInputField { grid-row: 2; }
 
 .errorLabel, .signUpLabel {
 	color: white;
@@ -66,7 +77,8 @@ body {
 	grid-row: 3;
 }
 
-.loginButton {
+.button,
+.fifthFunc {
 	background-color: #FF3A00;
 	color: white;
 	letter-spacing: 0.5vw;
@@ -74,11 +86,76 @@ body {
 	grid-row: 4;
 }
 
-.loginButton:hover {
-	background-color: #B92A00;
+.button:hover,
+.fifthFunc:hover { background-color: #B92A00; }
+
+.signUpLabel { font-size: 15px; grid-row: 5; }
+
+.firstFunc { grid-row: 1; text-align: center; }
+
+.groupedFunc {
+	grid-row: 2;
+	
+	display: grid;
+	grid-template-columns: auto auto auto;
 }
 
-.signUpLabel {
-	font-size: 15px;
-	grid-row: 5;
+.secondFunc { grid-column: 1; }
+.thirdFunc { grid-column: 2; }
+.fourthFunc { grid-column: 3; }
+.fifthFunc { grid-row: 3; }
+
+.secondFunc,
+.thirdFunc,
+.fourthFunc { width: 15vw; background-color: white; }
+
+.secondFunc:hover,
+.thirdFunc:hover,
+.fourthFunc:hover { background-color: #D4D4D4; }
+
+.button,
+.secondFunc,
+.thirdFunc,
+.fourthFunc,
+.fifthFunc {
+	text-align: center;
+	transition: all 0.5s;
+	cursor: pointer;
 }
+
+.button span,
+.secondFunc span,
+.thirdFunc span,
+.fourthFunc span,
+.fifthFunc span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.button span:after,
+.secondFunc span:after,
+.thirdFunc span:after,
+.fourthFunc span:after,
+.fifthFunc span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.button:hover span,
+.secondFunc:hover span,
+.thirdFunc:hover span,
+.fourthFunc:hover span,
+.fifthFunc:hover span { padding-right: 25px; }
+
+.button:hover span:after,
+.secondFunc:hover span:after,
+.thirdFunc:hover span:after,
+.fourthFunc:hover span:after,
+.fifthFunc:hover span:after { opacity: 1; right: 0; }
+
