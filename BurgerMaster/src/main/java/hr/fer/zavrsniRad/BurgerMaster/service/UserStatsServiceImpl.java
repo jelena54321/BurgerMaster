@@ -29,8 +29,8 @@ public class UserStatsServiceImpl implements UserStatsService {
 	}
 
 	@Override
-	public Optional<UserStats> findByUserId(int userId) {
-		return repository.findByUserId(userId);
+	public Optional<UserStats> findByUsername(String username) {
+		return repository.findByUsername(username);
 	}
 
 	@Override

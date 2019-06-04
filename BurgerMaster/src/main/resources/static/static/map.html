@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BurgerMaster</title>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/map.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+</head>
+<body class="map">
+
+	<div id="header" class="header"></div>
+	
+	<div class="mapInfoContainer">
+		<div class="mapContainer">
+			<img
+				src="media/map00.png"
+				alt="BurgerMaster: map"
+				width="510px"
+				onClick="updateInfo(event)"
+				usemap="#levels">
+		</div>
+		
+		<map id="levels" name="levels">
+		</map>
+		
+		<div id="mapInfo" class="mapInfo">
+			<div class="levelImage">
+				<img id="mapImage" width=230px>	
+			</div>
+			
+			<div class="infoFieldsContainer">
+				<div class="alignedRight">
+					<label><b>Destination:</b></label>
+				</div>
+				<div class="alignedLeft">
+					<label id="levelNameLabel"></label>
+				</div>
+				
+				<div class="alignedRight">
+					<label><b>Level:</b></label>
+				</div>
+				<div class="alignedLeft">
+					<label id="levelLabel"></label>
+				</div>
+				
+				<div class="alignedRight">
+					<label><b>Available:</b></label>
+				</div>
+				<div class="alignedLeft">
+					<label id="availableLabel"></label>
+				</div>
+				
+				<div class="alignedRight">
+					<label><b>Best Burger:</b></label>
+				</div>
+				<div class="alignedLeft">
+					<label id="burgerLabel"></label>
+				</div>
+				
+				<div class="centered">
+					<div id="levelDescription"></div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>

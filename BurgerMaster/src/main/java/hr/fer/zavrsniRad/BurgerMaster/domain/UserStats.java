@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import org.hibernate.annotations.NaturalId;
+
 /**
  * Class which presents object representation of user's stats.
  * 
@@ -23,8 +25,8 @@ public class UserStats {
 	private int id;
 	
 	/** User's id. */
-	@Column
-	private int userId;
+	@NaturalId
+	private String username;
 	
 	/** User's level. */
 	@Column
@@ -53,12 +55,12 @@ public class UserStats {
 	}
 	
 	/**
-	 * Get's user's id.
+	 * Get's user's username.
 	 * 
-	 * @return user's id
+	 * @return user's username
 	 */
-	public int getUserId() {
-		return userId;
+	public String getUsername() {
+		return username;
 	}
 
 	/**
@@ -66,8 +68,8 @@ public class UserStats {
 	 * 
 	 * @param userId user's id
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**

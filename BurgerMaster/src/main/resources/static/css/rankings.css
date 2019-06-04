@@ -1,0 +1,53 @@
+.rankings { height: auto; }
+
+.rankingsContainer {
+    margin: auto;
+    text-align: center;
+    width: 70vw;
+    background-color: #FF6F27;
+    padding-top: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h2 {
+	font-size: 35px;
+}
+
+.tabsContainer {
+    margin: auto;
+    text-align: center;
+    width: 70vw;
+    
+    display: grid;
+    grid-template-columns: 35vw 35vw;
+}
+
+.tab {
+    border: none;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    height: 6vh;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5vw;
+    color: white;
+    outline: none;
+    box-shadow: 0 -7px 8px 0 rgba(0, 0, 0, 0.2), 0 -9px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.rankingsTable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+.rankingsTd, .rankingsTh {
+    padding: 0.9vw;
+}
+
+.rankingsTr:nth-child(even) {
+    background-color: #F9AD87;
+}
+
+.rankingsTh {
+    background-color: #B92A00;
+}

@@ -1,9 +1,4 @@
-body {
-	font-family: 'Quicksand', sans-serif;
-	background-image: linear-gradient(#FFBA62, #FAA12F, #FF7B06);
-	height: 100vh;
-	color: white;
-}
+.index { height: 100vh; }
 
 .title {
 	font-size: 60px;

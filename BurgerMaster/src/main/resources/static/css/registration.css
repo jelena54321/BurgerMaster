@@ -1,12 +1,6 @@
-body {
-	font-family: 'Quicksand', sans-serif;
-	background-image: linear-gradient(#FFBA62, #FAA12F, #FF7B06);
-	height: 100vh;
-	text-align: center;
-	color: white;
-}
+.registration { height: 100vh; }
 
-.registerTitle {
+.title {
 	font-size: 40px;
 	text-align: center;
 	margin: 0;

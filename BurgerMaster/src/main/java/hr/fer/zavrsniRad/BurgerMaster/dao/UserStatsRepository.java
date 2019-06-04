@@ -16,13 +16,13 @@ import hr.fer.zavrsniRad.BurgerMaster.domain.UserStats;
 public interface UserStatsRepository extends JpaRepository<UserStats, Integer> {
 	
 	/**
-	 * Finds user's stats by <i>userId</i> provided as argument.
+	 * Finds user's stats by <i>username</i> provided as argument.
 	 * 
-	 * @param userId user's id
+	 * @param username user's username
 	 * 
-	 * @return user's stats if user's stats with provided user id exists, 
+	 * @return user's stats if user's stats with provided username exists, 
 	 * 		   otherwise empty optional 
 	 */
-	Optional<UserStats> findByUserId(int userId);
+	Optional<UserStats> findByUsername(String username);
 
 }

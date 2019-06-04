@@ -24,14 +24,14 @@ public interface UserStatsService {
 	List<UserStats> listAll();
 	
 	/**
-	 * Finds user's stats by <i>userId</i> provided as argument.
+	 * Finds user's stats by <i>username</i> provided as argument.
 	 * 
-	 * @param userId user's id
+	 * @param username user's username
 	 * 
-	 * @return user's stats if user's stats with provided user id exists, 
+	 * @return user's stats if user's stats with provided username exists, 
 	 * 		   otherwise empty optional 
 	 */
-	Optional<UserStats> findByUserId(int userId);
+	Optional<UserStats> findByUsername(String username);
 	
 	/**
 	 * Creates <i>userStats</i> provided as argument in the database.

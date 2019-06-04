@@ -1,0 +1,92 @@
+.index,
+.registration,
+.recipes,
+.rankings,
+.map {
+	font-family: 'Quicksand', sans-serif;
+	background-image: linear-gradient(#FFBA62, #FAA12F, #FF7B06);
+	color: white;
+	text-align: center;
+}
+
+.usernameLabel {
+	font-size: 20px;
+}
+
+.header {
+	height: 15vh;
+	
+	display: grid;
+	grid-template-columns: 15vw 40vw 25vw auto;
+}
+
+.firstSectionHeader,
+.thirdSectionHeader,
+.fourthSectionHeader {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.firstSectionHeader { grid-column: 1; }
+.secondSectionHeader { 
+	font-size: 30px; 
+	display: flex;
+  	align-items: center;
+	
+	grid-column: 2; 
+}
+.thirdSectionHeader { 
+	grid-column: 3; 	
+}
+.fourthSectionHeader { grid-column: 4; }
+
+.logoutButton {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 17px;
+	padding: 0.4vw;
+	outline: none;
+	border: none;
+	border-radius: 7px;
+	background-color: #FF3A00;
+	color: white;
+	width: 10vw;
+	
+	grid-row: 4;
+}
+
+.logoutButton:hover { background-color: #B92A00; }
+
+.rightAligned {
+	margin-right: 0;
+	margin-left: auto;
+}
+
+.logoutButton {
+	text-align: center;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+.logoutButton span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.logoutButton span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.logoutButton:hover span { padding-right: 25px; }
+
+.logoutButton:hover span:after { opacity: 1; right: 0; }

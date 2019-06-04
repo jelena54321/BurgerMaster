@@ -1,5 +1,6 @@
 package hr.fer.zavrsniRad.BurgerMaster.rest;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,12 +21,21 @@ import hr.fer.zavrsniRad.BurgerMaster.service.UserStatsService;
  * @author Jelena Šarić
  */
 @RestController
-@RequestMapping("/userStats")
+@RequestMapping("/stats")
 public class UserStatsController {
 	
 	/** User stats service. */
 	@Autowired
 	private UserStatsService service;
+	
+	/** Comparator by level. */
+	private static final Comparator<UserStats> COMPARATOR_BY_LEVEL = 
+			(first, second) -> Integer.compare(second.getLevel(), first.getLevel());
+			
+			
+	/** Comparator by points. */
+	private static final Comparator<UserStats> COMPARATOR_BY_POINTS = 
+			(first, second) -> Integer.compare(second.getPoints(), first.getPoints());
 	
 	/**
 	 * Gets all user's stats stored in the database.
@@ -46,9 +56,9 @@ public class UserStatsController {
 	 * 		   <code>null</code>
 	 */
 	@GetMapping("/single")
-	public UserStats getByUserId(@RequestParam("userId") Optional<Integer> userId) {
-		if (!userId.isPresent()) return null;
-		Optional<UserStats> userStats = service.findByUserId(userId.get());
+	public UserStats getByUsername(@RequestParam("username") Optional<String> username) {
+		if (!username.isPresent()) return null;
+		Optional<UserStats> userStats = service.findByUsername(username.get());
 		return userStats.isPresent() ? userStats.get() : null;
 	}
 	
@@ -73,9 +83,7 @@ public class UserStatsController {
 	 */
 	@GetMapping("/sorted/byLevel")
 	public List<UserStats> getUserStatsSortedByLevel() {
-		return service.listSorted(
-				(first, second) -> Integer.compare(second.getLevel(), first.getLevel())
-		);
+		return service.listSorted(COMPARATOR_BY_LEVEL.thenComparing(COMPARATOR_BY_POINTS));
 	}
 	
 	/**
@@ -87,9 +95,7 @@ public class UserStatsController {
 	 */
 	@GetMapping("/sorted/byPoints")
 	public List<UserStats> getUserStatsSortedByPoints() {
-		return service.listSorted(
-				(first, second) -> Integer.compare(second.getPoints(), first.getPoints())
-		);
+		return service.listSorted(COMPARATOR_BY_POINTS.thenComparing(COMPARATOR_BY_LEVEL));
 	}
 
 }

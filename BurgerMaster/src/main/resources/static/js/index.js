@@ -4,11 +4,27 @@ function getHtmlForLoggedIn(username) {
 	return "<div class='postLoginContainer'>" +
 				"<label class='firstFunc'>Welcome back, <b>" + username +"</b>!</label>" +
 				"<div class='groupedFunc'>" +
-					"<button class='secondFunc'><span>Map</span></button>" +
-					"<button class='thirdFunc onClick='/recipes'><span>Recipes</span></button>" +
-					"<button class='fourthFunc'><span>Rankings</span></button>" +
+					"<button " +
+						"class='secondFunc' " +
+						"onClick='loadMap()'>" +
+						"<span>Map</span>" + 
+					"</button>" +
+					"<button " +
+						"class='thirdFunc' " +
+						"onClick='loadRecipes()'>" +
+						"<span>Recipes</span>" +
+					"</button>" +
+					"<button " +
+						"class='fourthFunc' " +
+						"onClick='loadRankings()'>" +
+						"<span>Rankings</span>" +
+					"</button>" +
 				"</div>" +
-				"<button class='fifthFunc' onClick='logOut()'><span>Log Out</span></button>" +
+				"<button " +
+					"class='fifthFunc' " +
+					"onClick='logOut()'>" +
+					"<span>Log Out</span>" +
+				"</button>" +
 			"</div>";
 }
 
@@ -30,14 +46,16 @@ function getHtmlForLoggedOut() {
 				"<label class='signUpLabel'>" +
 					"Don't have an account? <a href='/register'>Sign Up</a>" +
 				"</label>" +
-				"<button class='button' onClick='logIn()'><span>Log In</span></button>" +
+				"<button class='button' onClick='logIn()'>" +
+					"<span>Log In</span>" +
+				"</button>" +
 			"</div>";
 }
     	
 function processLoading() {
 	$.get({
 		url: "/users/current",
-		data: "application/json",
+		dataType: "json",
 		success: function(data) {
 			$("#container").html(getHtmlForLoggedIn(data.username));
 		},
@@ -66,11 +84,14 @@ function logIn() {
 	});
 }
 
-function logOut() {
-	$.get({
-		url: "/logout",
-		success: function() {
-			window.location.replace("/");
-		}
-	});
+function loadRecipes() {
+	window.location.replace("/recipes");
+}
+
+function loadRankings() {
+	window.location.replace("/rankings");
+}
+
+function loadMap() {
+	window.location.replace("/map");
 }

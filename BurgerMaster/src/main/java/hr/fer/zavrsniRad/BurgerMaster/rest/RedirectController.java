@@ -20,5 +20,15 @@ public class RedirectController {
 	public String getRecipesPage() {
 		return "static/recipes";
 	}
+	
+	@RequestMapping("/rankings")
+	public String getRankingsPage() {
+		return "static/rankings";
+	}
+	
+	@RequestMapping("/map")
+	public String getMapPage() {
+		return "static/map";
+	}
 
 }
