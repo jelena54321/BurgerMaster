@@ -1,6 +1,11 @@
 $(document).ready(fetchStatsByLevel);
 $(document).ready(getHeaders);
 
+/**
+ * Gets <i>HTML<i> code for table headers.
+ * 
+ * @returns <i>HTML</i> code for table headers
+ */
 function getTableHeaders() {
 	return "<tr class='rankingsTr'>" +
 		   "<th class='rankingsTh'>Rank</th>" +
@@ -10,6 +15,13 @@ function getTableHeaders() {
 		   "</tr>";
 }
 
+/**
+ * Gets <i>HTML</i> code for table data.
+ * 
+ * @param data
+ *            data which will be included in the table
+ * @returns <i>HTML</i> code for table
+ */
 function getTableData(data) {
 	let html = getTableHeaders();
 	
@@ -26,6 +38,9 @@ function getTableData(data) {
 	return html;
 }
 
+/**
+ * Fetches user stats from server in descending order by level.
+ */
 function fetchStatsByLevel() {
 	document.getElementById("levelTab").style.backgroundColor = "rgb(255, 111, 39)";
 	document.getElementById("pointsTab").style.backgroundColor = "rgb(255, 58, 0)";
@@ -38,6 +53,9 @@ function fetchStatsByLevel() {
 	});
 }
 
+/**
+ * Fetches user stats from server in descending order by points.
+ */
 function fetchStatsByPoints() {
 	document.getElementById("levelTab").style.backgroundColor = "rgb(255, 58, 0)";
 	document.getElementById("pointsTab").style.backgroundColor = "rgb(255, 111, 39)";

@@ -69,3 +69,10 @@
 	grid-template-columns: 15vw auto;
 	grid-template-rows: 5vh 5vh 5vh 5vh auto;
 }
+
+.levelStars {
+	display: grid;
+	
+	grid-template-columns: repeat(5, 25px);
+	column-gap: 0.5vw;
+}

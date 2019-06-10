@@ -13,26 +13,32 @@
 <body class="map">
 
 	<div id="header" class="header"></div>
-	
+
 	<div class="mapInfoContainer">
+		<!-- map image -->
 		<div class="mapContainer">
 			<img
-				src="media/map00.png"
+				src="media/map/map.png"
 				alt="BurgerMaster: map"
 				width="510px"
-				onClick="updateInfo(event)"
-				usemap="#levels">
+				usemap="#districts">
 		</div>
 		
-		<map id="levels" name="levels">
+		<!-- MAP CONTAINING DISTRICT AREAS -->
+		<map id="districts" name="districts">
 		</map>
 		
+		<!-- DISTRICT INFORMATION -->
 		<div id="mapInfo" class="mapInfo">
+			
+			<!-- district's best burger image -->
 			<div class="levelImage">
 				<img id="mapImage" width=230px>	
 			</div>
 			
 			<div class="infoFieldsContainer">
+			
+				<!-- district's Manhattan destination -->
 				<div class="alignedRight">
 					<label><b>Destination:</b></label>
 				</div>
@@ -40,13 +46,15 @@
 					<label id="levelNameLabel"></label>
 				</div>
 				
+				<!-- corresponding game level -->
 				<div class="alignedRight">
 					<label><b>Level:</b></label>
 				</div>
 				<div class="alignedLeft">
-					<label id="levelLabel"></label>
+					<div id="levelStars" class="levelStars"></div>
 				</div>
 				
+				<!-- game level availability -->
 				<div class="alignedRight">
 					<label><b>Available:</b></label>
 				</div>
@@ -54,6 +62,7 @@
 					<label id="availableLabel"></label>
 				</div>
 				
+				<!-- district's best burger name -->
 				<div class="alignedRight">
 					<label><b>Best Burger:</b></label>
 				</div>
@@ -61,6 +70,7 @@
 					<label id="burgerLabel"></label>
 				</div>
 				
+				<!-- district's description -->
 				<div class="centered">
 					<div id="levelDescription"></div>
 				</div>

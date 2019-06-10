@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BurgerMaster</title>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/game.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body class="game">
+
+	<div class="gameContainer">
+	
+		<!-- TOP GAME INTERFACE -->
+		<div class="interfaceTop">
+			
+			<!-- top interface image -->
+			<img 
+				id="imgInterfaceTop" 
+				src="media/interface/InterfaceTop.png"
+				height=260>
+			<div id="tableContent" class="tableContent"></div>
+			
+			<!-- canvas for game clock -->
+			<canvas 
+				id="canvas" 
+				class="canvas"
+				width=150 
+				height=35></canvas>
+			
+			<!-- quit game button -->
+			<button 
+				id="quitGameButton"
+				onClick="quitGame()" 
+				class="quitGameButton">
+				<span>Quit</span>
+			</button>
+		</div>
+		
+		<!-- BOTTOM LEFT GAME INTERFACE -->
+		<div class="interfaceBottomLeft" >
+			<img 
+				src="media/interface/InterfaceBottomLeft.png" 
+				height=395
+				usemap="#leftMap">
+		</div>
+		
+		<!-- BOTTOM CENTER GAME INTERFACE -->
+		<div class="interfaceBottomCenter">
+			<img 
+				id="interfaceCenter"
+				src="media/burgers/InterfaceCenter.png"
+				usemap="#centerMap"
+				height=395>
+		</div>
+		
+		<!-- BOTTOM RIGHT GAME INTERFACE -->
+		<div class="interfaceBottomRight">
+			<img 
+				id="interfaceBottomRight"
+				src="media/interface/InterfaceBottomRight.png"
+				usemap="#rightMap"
+				height=395>
+		</div>
+		
+		<!-- MAP CONTAINING AREAS FOR BOTTOM LEFT GAME INTERFACE -->
+		<map name="leftMap">
+		
+			<!-- tomatoes -->
+			<area 
+				shape="poly"
+				coords="30,44,108,44,77,163,0,163,30,44"
+				onClick="addIngredient('Tomato')" />
+				
+			<!-- cheese -->
+			<area
+				shape="poly"
+				coords="122,44,198,44,167,163,92,163,122,44"
+				onClick="addIngredient('Cheese')"
+			/>
+			
+			<!-- salad -->
+			<area
+				shape="poly"
+				coords="216,44,293,44,263,163,186,163,216,44"
+				onClick="addIngredient('Salad')" />
+				
+			<!-- onions -->
+			<area
+				shape="poly"
+				coords="31,175,108,175,77,294,0,294,31,175"
+				onClick="addIngredient('Onion')" />
+				
+			<!-- bacon -->
+			<area
+				shape="poly"
+				coords="126,175,201,175,172,294,96,294,126,175"
+				onClick="addIngredient('Bacon')" />
+				
+			<!-- ketchup -->
+			<area
+				shape="poly"
+				coords="219,201,233,201,241,222,243,285,206,285,211,222"
+				onClick="addIngredient('Ketchup')" />
+		</map>
+		
+		<!-- MAP CONTAINING AREAS FOR BOTTOM CENTER GAME INTERFACE -->
+		<map name="centerMap">
+			
+			<!-- bread -->
+			<area
+				shape="poly"
+				coords="5,332,267,332,267,379,5,379,5,332"
+				onClick="addBread()" />
+				
+			<!-- trash can -->	
+			<area 
+				shape="poly"
+				coords="317,346,380,335,447,346,444,379,317,379,317,346"
+				onClick="throwBurger()"/>
+		</map>
+		
+		<!--  MAP CONTAINING AREAS FOR BOTTOM RIGHT INTERFACE -->
+		<map name="rightMap">
+			
+			<!-- fresh meat -->
+			<area
+				shape="poly"
+				coords="79,41,156,41,156,130,79,130,79,41"
+				onClick="putMeatOnTheStove()" />
+				
+			<!-- bell -->
+			<area
+				shape="poly"
+				coords="230,63,254,70,274,105,230,125,190,105,209,70,230,63"
+				onClick="finishOrder()" />
+				
+			<!-- stove -->
+			<area
+				shape="poly"
+				coords="60,154,273,154,248,292,36,290,60,154"
+				onClick="addMeat()" />
+				
+			<!-- trash can -->
+			<area
+				shape="poly"
+				coords="70,345,133,330,205,345,205,379,70,379,70,345"
+				onClick="throwMeat()" />
+		</map>
+		
+	</div>
+	
+	<!-- INITIAL INTERFACE (PRE-GAME INTERFACE) -->
+	<div id="startDiv" class="startDiv">
+		<div id="centerDiv" class="centerDiv">
+			<p class="gameInstructions">
+				The rules of the game are simple. Just follow these rules:<br><br>
+				1. Wait for the order on the green board<br>
+				2. Try to make required burger as quick as possible by using
+				meat and oven on the right and ingredients on the left<br>
+				3. Once your burger (hopefully with appropriate ingredients) is finished,
+				ring the bell in order to start with new burger order<br>
+				4. Repeat this until your shift is over<br>
+				5. Wait for your paycheck!<br><br>
+				Hurry, because you have only two minutes to finish all orders! 
+			</p>
+			<button class="button" onClick="startGame()"><span>Start</span></button>
+			<button class="button" onClick="cancelGame()"><span>Cancel</span></button>
+		
+		</div>
+	</div>
+</body>
+</html>

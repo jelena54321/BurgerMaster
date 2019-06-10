@@ -1,4 +1,8 @@
+/**
+ * Processes registration request.
+ */
 function register() {
+	// DOM elements
     let usernameElement = document.getElementById("username");
 	let username = usernameElement.value;
 	let emailElement = document.getElementById("email");
@@ -6,9 +10,12 @@ function register() {
 	let passwordElement = document.getElementById("password");
 	let password = passwordElement.value;
 	
+	// DOM error labels
 	let usernameErrorLabel = document.getElementById("usernameErrorLabel");
 	let emailErrorLabel = document.getElementById("emailErrorLabel");
 	let passwordErrorLabel = document.getElementById("passwordErrorLabel");
+	
+	// FIELDS VALIDATION
 	
 	let validUsername = isValidUsername(username);
 	if (!validUsername) usernameErrorLabel.innerText = "Invalid username";
@@ -27,6 +34,7 @@ function register() {
 		return;
 	}
 	
+	// check if user name already exists
 	$.get({
 		url: "/users/check/username/" + username,
 		headers: {
@@ -34,6 +42,7 @@ function register() {
 		},
 		success: function() {
 			
+			// check if email already exists
 			$.get({
     			url: "/users/check/email/" + email,
     			headers: {
@@ -41,6 +50,7 @@ function register() {
    				},
    				success: function() {
    					
+   					// register user
 	   				$.post({
    		     			url: "/users",
    		     			headers: {
@@ -49,10 +59,24 @@ function register() {
    		     			data: JSON.stringify({
    		     				username: username,
    		     				email: email,
-   		     				password: password,
+   		     				password: password
    		     			}),
    		     			success: function() {
    		     				
+   		     				// initialize user's stats 
+   		     				$.post({
+   		     					url: "/stats",
+	   		     				headers: {
+	   	   		     				"Content-Type": "application/json"
+	   	   		     			},
+	   	   		     			data: JSON.stringify({
+	   	   		     				username: username,
+	   	   		     				points: 0,
+	   	   		     				level: 1
+	   	   		     			})
+   		     				});
+   		     				
+   		     				// log in user 
 	   		     			$.post({
 	   		    				url: "/login",
 	   		    				data: "username=" + username + "&password=" + password,
@@ -63,7 +87,6 @@ function register() {
 	   		    					window.location.replace("/");
 	   		    				}
 	   		     			});
-   		     			
    		     			}
 	     			});
    					

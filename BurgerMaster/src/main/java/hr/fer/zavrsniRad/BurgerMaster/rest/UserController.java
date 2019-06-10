@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hr.fer.zavrsniRad.BurgerMaster.domain.User;
-import hr.fer.zavrsniRad.BurgerMaster.domain.UserModel;
 import hr.fer.zavrsniRad.BurgerMaster.service.UserService;
 
 /**
@@ -28,47 +27,35 @@ public class UserController {
 	
 	/** User service. */
 	@Autowired
-	private UserService service;
-	
-	/**
-	 * Gets user by <i>id</i> provided as request parameter.
-	 * 
-	 * @param id user's id
-	 * 
-	 * @return <code>User</code> object if user with provided id exists, otherwise
-	 * 		   <code>null</code>
-	 */
-	@GetMapping("/id/{id}")
-	public User getById(@PathVariable int id) {
-		Optional<User> user = service.findById(id);
-		return user.isPresent() ? user.get() : null;
-	}
+	private UserService userService;
 	
 	/**
 	 * Gets user by <i>username</i> provided as request parameter.
 	 * 
-	 * @param username user's user name
-	 * @return <code>User</code> object if user with provided username exists, otherwise
-	 * 		   <code>null</code>
+	 * @param username
+	 *            user's user name
+	 * @return <code>User</code> object if user with provided username exists,
+	 *         otherwise <code>null</code>
 	 */
 	@GetMapping("/username/{username}")
 	public User getByUsername(@PathVariable String username) {
-		Optional<User> user = service.findByUsername(username);
+		Optional<User> user = userService.findByUsername(username);
 		return user.isPresent() ? user.get() : null;
 	}
 	
 	/**
-	 * Checks whether user with <i>username</i> provided as request parameter already
-	 * exist.
+	 * Checks whether user with <i>username</i> provided as request parameter
+	 * already exists.
 	 * 
-	 * @param username user's user name
+	 * @param username
+	 *            user's user name
 	 * 
-	 * @throws UsernameAlreadyExistsException if user with provided username already
-	 * 										  exists
+	 * @throws UsernameAlreadyExistsException
+	 *             if user with provided username already exists
 	 */
 	@GetMapping("/check/username/{username}")
 	public void checkIfUsernameExists(@PathVariable String username) {
-		if (service.checkIfUsernameExists(username)) {
+		if (userService.checkIfUsernameExists(username)) {
 			throw new UsernameAlreadyExistsException(
 					"User with provided username already exists!"
 			);
@@ -77,16 +64,17 @@ public class UserController {
 	
 	/**
 	 * Checks whether user with <i>email</i> provided as request parameter already
-	 * exist.
+	 * exists.
 	 * 
-	 * @param email user's email
+	 * @param email
+	 *            user's email
 	 * 
-	 * @throws EmailAlreadyExistsException if user with provided email already
-	 * 									   exists
+	 * @throws EmailAlreadyExistsException
+	 *             if user with provided email already exists
 	 */
 	@GetMapping("/check/email/{email}")
 	public void checkIfEmailExists(@PathVariable String email) {
-		if (service.checkIfEmailExists(email)) {
+		if (userService.checkIfEmailExists(email)) {
 			throw new EmailAlreadyExistsException(
 					"User with provided email already exists!"
 			);
@@ -96,7 +84,8 @@ public class UserController {
 	/**
 	 * Gets current user.
 	 * 
-	 * @param principal principal reference
+	 * @param principal
+	 *            principal reference
 	 * 
 	 * @return user who has currently established session
 	 */
@@ -104,21 +93,20 @@ public class UserController {
 	public User getCurrentUser(Principal principal) {
 		Objects.requireNonNull(principal, "Principal can not be null!");
 		String username = principal.getName();
-		return service.findByUsername(username).get();
+		return userService.findByUsername(username).get();
 	}
 	
 	/**
 	 * Registers new user in the system.
 	 * 
-	 * @param user new user
+	 * @param user
+	 *            new user
 	 * 
 	 * @return newly added user
 	 */
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public User registerUser(@RequestBody UserModel userModel) {
-		User user = new User();
-		user.fillWithUserModelData(userModel);
-		return service.createUser(user);
+	public User registerUser(@RequestBody User user) {
+		return userService.createUser(user);
 	}
 	
 }

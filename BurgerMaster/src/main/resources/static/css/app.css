@@ -2,7 +2,8 @@
 .registration,
 .recipes,
 .rankings,
-.map {
+.map,
+.game {
 	font-family: 'Quicksand', sans-serif;
 	background-image: linear-gradient(#FFBA62, #FAA12F, #FF7B06);
 	color: white;

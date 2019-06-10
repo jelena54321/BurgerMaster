@@ -17,13 +17,6 @@ import hr.fer.zavrsniRad.BurgerMaster.domain.UserStats;
 public interface UserStatsService {
 	
 	/**
-	 * Lists all user's stats stored in the database.
-	 * 
-	 * @return list of <code>UserStats</code> objects
-	 */
-	List<UserStats> listAll();
-	
-	/**
 	 * Finds user's stats by <i>username</i> provided as argument.
 	 * 
 	 * @param username user's username
@@ -32,15 +25,6 @@ public interface UserStatsService {
 	 * 		   otherwise empty optional 
 	 */
 	Optional<UserStats> findByUsername(String username);
-	
-	/**
-	 * Creates <i>userStats</i> provided as argument in the database.
-	 * 
-	 * @param userStats new user's stats
-	 * 
-	 * @return newly created user's stats
-	 */
-	UserStats createUserStats(UserStats userStats);
 	
 	/**
 	 * Saves <i>userStats</i> provided as argument in the database.

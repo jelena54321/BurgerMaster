@@ -9,7 +9,12 @@ package hr.fer.zavrsniRad.BurgerMaster.domain;
  */
 public enum Meat {
 
+	/** Undercooked meat. */
 	RAW,
+	
+	/** Perfect meat. */
 	WELL_DONE,
+	
+	/** Overcooked meat. */
 	OVERDONE
 }

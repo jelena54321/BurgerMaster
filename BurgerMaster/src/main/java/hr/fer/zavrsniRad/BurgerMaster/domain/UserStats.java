@@ -7,33 +7,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import org.hibernate.annotations.NaturalId;
+import hr.fer.zavrsniRad.BurgerMaster.util.Constants;
 
 /**
- * Class which presents object representation of user's stats.
+ * Class which presents user's stats.
  * 
  * @author Jelena Šarić
+ * 
  */
-
 @Entity
-@SequenceGenerator(name = "generator", initialValue = 100, allocationSize = 100)
+@SequenceGenerator(name = Constants.GENERATOR, initialValue = 100, allocationSize = 100)
 public class UserStats {
 	
 	/** User's stats id. */
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constants.GENERATOR)
 	private int id;
 	
 	/** User's id. */
-	@NaturalId
+	@Column(nullable = false)
 	private String username;
 	
 	/** User's level. */
-	@Column
+	@Column(nullable = false)
 	private int level;
 
 	/** User's points. */
-	@Column
+	@Column(nullable = false)
 	private int points;
 
 	/**

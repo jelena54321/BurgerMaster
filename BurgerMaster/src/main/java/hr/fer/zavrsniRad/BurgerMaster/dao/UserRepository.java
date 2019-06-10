@@ -8,37 +8,34 @@ import org.springframework.stereotype.Repository;
 import hr.fer.zavrsniRad.BurgerMaster.domain.User;
 
 /**
- * Interface to user repository.
+ * Interface which presents communication with repository for storing
+ * {@link User} objects.
  * 
  * @author Jelena Šarić
+ *
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer>{
-	
-	/**
-	 * Finds user by <i>id</i> provided as argument.
-	 * 
-	 * @param id user's id
-	 * 
-	 * @return user if user with provided id exists, otherwise empty optional
-	 */
-	Optional<User> findById(int id);
-	
+public interface UserRepository extends JpaRepository<User, Integer> {
+
 	/**
 	 * Finds user by <i>username</i> provided as argument.
 	 * 
-	 * @param username user's user name
+	 * @param username
+	 *            user's user name
 	 * 
-	 * @return user if user with provided user name exists, otherwise empty optional
+	 * @return <code>User</code>, if such user exists, stored in
+	 *         <code>Optional</code>
 	 */
 	Optional<User> findByUsername(String username);
-	
+
 	/**
 	 * Finds user by <i>email</i> provided as argument.
 	 * 
-	 * @param username user's email
+	 * @param username
+	 *            user's email
 	 * 
-	 * @return user if user with provided email exists, otherwise empty optional
+	 * @return <code>User</code>, if such user exists, stored in
+	 *         <code>Optional</code>
 	 */
 	Optional<User> findByEmail(String email);
 

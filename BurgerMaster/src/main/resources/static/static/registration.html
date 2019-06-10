@@ -9,11 +9,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/registration.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body class="registration">
+
 	<img 
 		class="logo" 
-		src="/media/OGLogo.png" 
+		src="/media/logo.png" 
 		alt="Logo"
 		width=200px
 		onClick="loadIndex()">
@@ -22,36 +24,45 @@
 	
 	<div class="registerContainer">
 		
+		<!-- user name field -->
 		<input 
 			class="firstTextField" 
 			id="username" 
 			type="text" 
 			placeholder="Username">
 		
+		<!-- user name error label -->
 		<label 
 			class="usernameErrorLabel" 
 			id="usernameErrorLabel"></label>
 		
+		
+		<!-- email field -->
 		<input 
 			class="secondTextField" 
 			id="email" 
 			type="text" 
 			placeholder="E-mail">
 		
+		<!-- email error label -->
 		<label 
 			class="emailErrorLabel" 
 			id="emailErrorLabel"></label>
 		
+		
+		<!-- password field -->
 		<input 
 			class="thirdTextField" 
 			id="password" 
 			type="password" 
 			placeholder="Password">
 		
+		<!-- password error label -->
 		<label 
 			class="passwordErrorLabel" 
 			id="passwordErrorLabel"></label>
 		
+		<!-- register button -->
 		<button class="registerButton" onClick="register()"><span>Sign Up</span></button>
 	
 	</div>

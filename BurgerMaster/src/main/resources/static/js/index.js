@@ -1,8 +1,18 @@
 $(document).ready(processLoading);
 
+/**
+ * Returns <i>HTML</i> code for logged in user's perspective.
+ * 
+ * @param username
+ *            user's user name
+ *            
+ * @returns <i>HTML</i> code
+ */
 function getHtmlForLoggedIn(username) {
 	return "<div class='postLoginContainer'>" +
-				"<label class='firstFunc'>Welcome back, <b>" + username +"</b>!</label>" +
+				"<label class='firstFunc'>" +
+					"Welcome back, <b>" + username +"</b>!" + 
+				"</label>" +
 				"<div class='groupedFunc'>" +
 					"<button " +
 						"class='secondFunc' " +
@@ -28,6 +38,14 @@ function getHtmlForLoggedIn(username) {
 			"</div>";
 }
 
+/**
+ * Returns <i>HTML</i> code for logged out user's perspective.
+ * 
+ * @param username
+ *            user's user name
+ *            
+ * @returns <i>HTML</i> code
+ */
 function getHtmlForLoggedOut() {
 	return "<div class='preLoginContainer'>" +
 				"<input " +
@@ -52,6 +70,10 @@ function getHtmlForLoggedOut() {
 			"</div>";
 }
     	
+/**
+ * Determines whether there is user currently logged in. If so, logged in user's
+ * perspective is loaded, otherwise logged out user's perspective is loaded.
+ */
 function processLoading() {
 	$.get({
 		url: "/users/current",
@@ -65,6 +87,10 @@ function processLoading() {
 	});
 }
 
+/**
+ * Processes login request by using current values from username and password
+ * fields.
+ */
 function logIn() {
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
@@ -82,16 +108,4 @@ function logIn() {
 			document.getElementById("errorLabel").hidden = false;
 		}
 	});
-}
-
-function loadRecipes() {
-	window.location.replace("/recipes");
-}
-
-function loadRankings() {
-	window.location.replace("/rankings");
-}
-
-function loadMap() {
-	window.location.replace("/map");
 }

@@ -1,5 +1,6 @@
 package hr.fer.zavrsniRad.BurgerMaster.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,18 +9,21 @@ import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.NaturalId;
 
+import hr.fer.zavrsniRad.BurgerMaster.util.Constants;
+
 /**
- * Class which presents object representation of a user in database.
+ * Class which user.
  * 
  * @author Jelena Šarić
+ * 
  */
 @Entity
-@SequenceGenerator(name = "generator", initialValue = 100, allocationSize = 100)
+@SequenceGenerator(name = Constants.GENERATOR, initialValue = 100, allocationSize = 100)
 public class User {
 	
 	/** User's id. */
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constants.GENERATOR)
 	private int id;
 	
 	/** User's name. */
@@ -31,6 +35,7 @@ public class User {
 	private String email;
 	
 	/** User's password. */
+	@Column(nullable = false)
 	private String password;
 	
 	/** 
@@ -103,11 +108,5 @@ public class User {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	public void fillWithUserModelData(UserModel userModel) {
-		this.username = userModel.getUsername();
-		this.email = userModel.getEmail();
-		this.password = userModel.getPassword();
 	}
 }

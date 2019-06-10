@@ -1,76 +1,144 @@
 package hr.fer.zavrsniRad.BurgerMaster.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
+/**
+ * Class which presents game level.
+ * <br>
+ * Detailed fields' descriptions are specified below:
+ * <ul>
+ * 		<li><code>level</code><br>
+ * 		level's value</li>
+ * 		<li><code>ordersCount</code><br>
+ * 		number of orders which will be expected on this level</li>
+ * 		<li><code>sleepInterval</code><br>
+ * 		interval between two orders on this level</li>
+ * 		<li><code>threshold</code><br>
+ * 		minimal amount of points required in order to be able to pass this level</li>
+ * 		<li><code>burgers</code><br>
+ * 		burgers which will be included in orders on this level</li>
+ * </ul>
+ * 
+ * @author Jelena Šarić
+ *
+ */
 @Entity
 public class Level {
 	
+	/** Level value. */
 	@Id
 	private int level;
 	
-	@Column
-	private String name;
+	/** Number of orders. */
+	@Column(nullable = false)
+	private int ordersCount;
 	
-	@Column
-	private int x;
+	/** Sleep interval. */
+	@Column(nullable = false)
+	private int sleepInterval;
 	
-	@Column
-	private int y;
+	/** Level's threshold. */
+	@Column(nullable = false)
+	private int threshold;
 	
-	@Column
-	private String burger;
-	
-	@Column
-	private String description;
+	/** List of burgers. */
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	private List<Burger> burgers;
 
+	/**
+	 * Gets level's value.
+	 * 
+	 * @return level's value
+	 */
 	public int getLevel() {
 		return level;
 	}
 
+	/**
+	 * Sets level's value. 
+	 * 
+	 * @param level level's value
+	 */
 	public void setLevel(int level) {
 		this.level = level;
 	}
 
-	public String getName() {
-		return name;
+	/**
+	 * Gets burgers for this level.
+	 * 
+	 * @return list of level's burgers
+	 */
+	public List<Burger> getBurgers() {
+		return burgers;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	/**
+	 * Sets this level's burgers.
+	 * 
+	 * @param burgers list of level's burgers
+	 */
+	public void setBurgers(List<Burger> burgers) {
+		this.burgers = burgers;
 	}
 
-	public int getX() {
-		return x;
+	/**
+	 * Gets number of orders.
+	 * 
+	 * @return number of orders
+	 */
+	public int getOrdersCount() {
+		return ordersCount;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	/**
+	 * Sets number of orders.
+	 * 
+	 * @param ordersCount number of orders
+	 */
+	public void setOrdersCount(int ordersCount) {
+		this.ordersCount = ordersCount;
 	}
 
-	public int getY() {
-		return y;
+	/**
+	 * Gets sleep interval.
+	 * 
+	 * @return sleep interval
+	 */
+	public int getSleepInterval() {
+		return sleepInterval;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	/**
+	 * Sets sleep interval.
+	 * 
+	 * @param sleepInterval sleep interval
+	 */
+	public void setSleepInterval(int sleepInterval) {
+		this.sleepInterval = sleepInterval;
 	}
 
-	public String getBurger() {
-		return burger;
+	/**
+	 * Gets level's threshold.
+	 * 
+	 * @return level's threshold
+	 */
+	public int getThreshold() {
+		return threshold;
 	}
 
-	public void setBurger(String burger) {
-		this.burger = burger;
+	/**
+	 * Sets level's threshold.
+	 * 
+	 * @param threshold level's threshold
+	 */
+	public void setThreshold(int threshold) {
+		this.threshold = threshold;
 	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 }

@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 import hr.fer.zavrsniRad.BurgerMaster.dao.UserRepository;
 import hr.fer.zavrsniRad.BurgerMaster.domain.User;
+import hr.fer.zavrsniRad.BurgerMaster.util.Constants;
 
 /**
- * Class which presents concrete implementation of <code>UserService</code>.
+ * Class which presents {@link UserService} interface implementation.
  * 
  * @author Jelena Šarić
  */
@@ -20,8 +21,9 @@ public class UserServiceImpl implements UserService {
 	
 	/** User repository. */
 	@Autowired
-	private UserRepository repository;
+	private UserRepository userRepository;
 	
+	/** User details manager. */
 	@Autowired
     private InMemoryUserDetailsManager manager;
 	
@@ -30,13 +32,8 @@ public class UserServiceImpl implements UserService {
 	private PasswordEncoder passwordEncoder;
 
 	@Override
-	public Optional<User> findById(int id) {
-		return repository.findById(id);
-	}
-
-	@Override
 	public Optional<User> findByUsername(String username) {
-		return repository.findByUsername(username);
+		return userRepository.findByUsername(username);
 	}
 
 	@Override
@@ -46,26 +43,21 @@ public class UserServiceImpl implements UserService {
 			org.springframework.security.core.userdetails.User.withUsername(
 					user.getUsername())
 					.password(user.getPassword())
-					.roles("USER")
+					.roles(Constants.USER)
 					.build()
 		);
 		
-		return repository.save(user);
-	}
-
-	@Override
-	public User saveUser(User user) {
-		return repository.save(user);
+		return userRepository.save(user);
 	}
 
 	@Override
 	public boolean checkIfUsernameExists(String username) {
-		return repository.findByUsername(username).isPresent();
+		return userRepository.findByUsername(username).isPresent();
 	}
 
 	@Override
 	public boolean checkIfEmailExists(String email) {
-		return repository.findByEmail(email).isPresent();
+		return userRepository.findByEmail(email).isPresent();
 	}
 
 }
