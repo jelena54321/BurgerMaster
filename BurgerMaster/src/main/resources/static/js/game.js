@@ -127,8 +127,6 @@ function addIngredient(ingredient) {
 	if (burger[ingredient]) return;
 	burger[ingredient] = true;
 	
-	console.log(burger);
-	
 	let index;
 	switch (ingredient) {
 	case 'Tomato':
@@ -157,7 +155,6 @@ function addIngredient(ingredient) {
 	let prefix = oldSrc.substring(relPathIndex, relPathIndex + index);
 	let postfix = oldSrc.substring(relPathIndex + index + 1);
 	let newSrc = prefix + 1 + postfix;
-	console.log(newSrc);
 	document.getElementById("interfaceCenter").src = path + newSrc;
 }
 
@@ -187,7 +184,6 @@ function addMeat() {
 	let path = oldSrc.substring(0, relPathIndex);
 	let postfix = oldSrc.substring(relPathIndex + 1);
 	let newSrc = meat + postfix;
-	console.log(newSrc);
 	document.getElementById("interfaceCenter").src = path + newSrc;
 	
 	throwMeat();
